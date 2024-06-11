@@ -39,8 +39,14 @@ const TerminalInput = styled.input`
 
 const Terminal = () => {
   const [input, setInput] = useState('');
-  const [output, setOutput] = useState(['']);
-  const inputRef = useRef(null);
+ 
+  cons const [output, setOutput] = useState([''])ng New Features
+
+        Create a new feature branch from develop:
+
+        bash
+
+    git checkout -b feature/branch-name;= useRef(null);
   const outputRef = useRef(null);
 
   useEffect(() => {
