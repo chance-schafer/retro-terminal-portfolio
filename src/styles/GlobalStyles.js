@@ -1,21 +1,28 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-  body {
+  * {
     margin: 0;
     padding: 0;
-    background-color: #000;
-    color: #0f0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #282c34;
+    color: white;
     font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
 
   #root {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: url('/path/to/your/background-image.jpg') no-repeat center center fixed;
-    background-size: cover;
+    width: 100%;
+    height: 100%;
   }
 `;
 
