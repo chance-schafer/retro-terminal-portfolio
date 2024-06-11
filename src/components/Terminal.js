@@ -39,7 +39,7 @@ const TerminalInput = styled.input`
 
 const Terminal = () => {
   const [input, setInput] = useState('');
-  const [output, setOutput] = useState(['']);
+  const [output, setOutput] = useState([]);
   const inputRef = useRef(null);
   const outputRef = useRef(null);
 
@@ -53,7 +53,15 @@ const Terminal = () => {
 
   const handleInputSubmit = (e) => {
     if (e.key === 'Enter') {
-      setOutput([...output, `> ${input}`, processCommand(input)]);
+      if (input.toLowerCase() === 'clear') {
+        setOutput([]);
+      } else {
+        setOutput((prevOutput) => [
+          ...prevOutput,
+          `> ${input}`,
+          processCommand(input),
+        ]);
+      }
       setInput('');
       scrollToBottom();
     }
@@ -88,7 +96,6 @@ const Terminal = () => {
           `GitHub: https://github.com/yourusername\n`
         );
       case 'clear':
-        setOutput([]);
         return '';
       default:
         return `Command not found: ${command}`;
@@ -101,8 +108,12 @@ const Terminal = () => {
     }
   };
 
+  const handleClick = () => {
+    inputRef.current.focus();
+  };
+
   return (
-    <TerminalContainer>
+    <TerminalContainer onClick={handleClick}>
       <TerminalOutput ref={outputRef}>
         {output.map((line, index) => (
           <div key={index}>{line}</div>
@@ -121,5 +132,6 @@ const Terminal = () => {
     </TerminalContainer>
   );
 };
+
 
 export default Terminal;
