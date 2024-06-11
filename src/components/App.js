@@ -1,6 +1,6 @@
 import React from 'react';
-import GlobalStyles from './styles/GlobalStyles';
 import Terminal from './components/Terminal';
+import GlobalStyles from './styles/GlobalStyles';
 
 function App() {
   return (
