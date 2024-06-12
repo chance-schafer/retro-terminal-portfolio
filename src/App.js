@@ -1,14 +1,15 @@
 import React from 'react';
-import GlobalStyles from './styles/GlobalStyles';
+import { AppContainer } from './components/styles';
+import NewsLine from './components/NewsLine';
 import Terminal from './components/Terminal';
 
-function App() {
+const App = () => {
   return (
-    <>
-      <GlobalStyles />
+    <AppContainer>
+      <NewsLine />
       <Terminal />
-    </>
+    </AppContainer>
   );
-}
+};
 
 export default App;
